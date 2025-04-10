@@ -14,6 +14,14 @@
     "release:major": "npm version major && npm publish --access public",
     "pub": "npm run build && npm run release:patch"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lorcan-cloud/uniapp-pages.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lorcan-cloud/uniapp-pages/issues"
+  },
+  "homepage": "https://github.com/lorcan-cloud/uniapp-pages#readme",
   "keywords": [
     "uniapp",
     "typescript",
