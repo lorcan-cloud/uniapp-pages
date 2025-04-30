@@ -10,7 +10,7 @@ program
     .description('Generate TypeScript type definitions from uniapp pages.json')
     .version('1.0.0')
     .requiredOption('-f, --file <path>', 'Path to pages.json file')
-    .option('-s, --save <path>', 'Output path for type definition file', 'pages.d.ts');
+    .option('-s, --save <path>', 'Output path for type definition file', 'src/pages.d.ts');
 
 program.parse();
 

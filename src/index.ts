@@ -23,13 +23,13 @@ export function extractPagePaths(pagesJsonPath: string): string[] {
 
     // 处理主包页面
     config.pages.forEach(page => {
-        paths.push(page.path);
+        paths.push(`/${page.path}`);
     });
 
     // 处理分包页面
     config.subPackages?.forEach(subPackage => {
         subPackage.pages.forEach(page => {
-            paths.push(`${subPackage.root}/${page.path}`);
+            paths.push(`/${subPackage.root}/${page.path}`);
         });
     });
 
@@ -38,7 +38,13 @@ export function extractPagePaths(pagesJsonPath: string): string[] {
 
 export function generateTypeDefinition(paths: string[]): string {
     const typeNames = paths.map(path => `'${path}'`).join(' | ');
-    return `declare type UNPages = ${typeNames};\n\nexport default UNPages;\n`;
+    return `declare global {
+    type UNPages = ${typeNames};
+}
+
+export { };
+
+`;
 }
 
 export function writeTypeDefinition(content: string, outputPath: string): void {

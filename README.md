@@ -15,7 +15,7 @@ npm install @lorcan-store/uniapp-pages --save-dev
 ```json
 {
   "scripts": {
-    "uniapp-pages": "uniapp-pages -f src/pages.json -s pages.d.ts"
+    "uniapp-pages": "uniapp-pages -f src/pages.json -s src/pages.d.ts"
   }
 }
 ```
@@ -29,16 +29,18 @@ npm run uniapp-pages
 ## 命令行选项
 
 - `-f, --file <path>`: pages.json 文件的路径（必需）
-- `-s, --save <path>`: 类型定义文件的输出路径（可选，默认为 pages.d.ts）
+- `-s, --save <path>`: 类型定义文件的输出路径（可选，默认为 src/pages.d.ts）
 
 ## 生成的类型定义
 
-生成的类型定义文件将包含一个名为 `UNPages` 的类型，它是所有页面路径的联合类型：
+生成的类型定义文件将包含一个全局类型 `UNPages`，它是所有页面路径的联合类型：
 
 ```typescript
-declare type UNPages = 'pages/home/home' | 'pages/user/user' | ...;
+declare global {
+    type UNPages = '/pages/home/index' | '/pages/ai/index' | '/pages/user/index' | '/pages/login/index' | '/pages/list/index' | '/pages/list/united_office' | '/pages/publish/house' | '/pages/publish/build' | '/pages/publish/type' | '/pages/publish/map' | '/second/search/index' | '/second/agree/user' | '/second/agree/privacy';
+}
 
-export default UNPages;
+export { };
 ```
 
 ## License
